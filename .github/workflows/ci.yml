@@ -38,6 +38,6 @@ jobs:
         uses: peter-evans/repository-dispatch@v2
         with:
           token: ${{ secrets.PATXOXO }}
-          repository: domselardi/github_workflow_dispatcher_destination
+          repository: domselardi/github_workflow_cloudHosted
           event-type: myEvoque
           client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
