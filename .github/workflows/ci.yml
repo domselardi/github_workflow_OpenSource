@@ -37,7 +37,7 @@ jobs:
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v2
         with:
-          token: ${{ secrets.PATXOXO }}
-          repository: domselardi/github_workflow_cloudHosted
-          event-type: myEvoque
+          token: ${{ secrets.AUTOSYNC_TOKEN_CLOUD_HOSTED_REPO }}
+          repository: ${{ secrets.AUTOSYNC_CLOUD_HOSTED_REPO_URL }}
+          event-type: ${{ secrets.AUTOSYNC_EVENT_TYPE }}
           client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
