@@ -10,7 +10,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: Ignore this single commit
         run: |
-          echo ${{ github.event.commits[0].message }}
+          echo ${{ github.event.commits.length }}
           echo Commit has came from merged pull request! Please ignore it!
   autoSyncSingleCommit:
     if: ${{ github.event.commits.length == 1 }}
