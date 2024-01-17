@@ -4,16 +4,16 @@ on:
     branches:
       - main
 jobs:
-  autoSyncIsAllowed:
-    if: github.event.pull_request.merged == true
+  autoSyncNotRequired:
+    if: contains(github.event.commits[github.event.commits.length - 1].message, 'Merge pull request #')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Checkout the repository
+      - name: Ignore this single commit
         run: |
-          echo Commit has came from merged pull request
+          echo Commit has came from merged pull request! Please ignore it!
   autoSyncSingleCommit:
-    if: github.event.pull_request.merged == false
+    if:  ${{ !contains(github.event.commits[github.event.commits.length - 1].message, 'Merge pull request #') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
