@@ -5,15 +5,16 @@ on:
       - main
 jobs:
   autoSyncNotRequired:
-    if: github.event.commits.length > 1
+    if: ${{ github.event.commits.length > 1 }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - name: Ignore this single commit
         run: |
+          echo ${{ github.event.commits.length }}
           echo Commit has came from merged pull request! Please ignore it!
   autoSyncSingleCommit:
-    if: github.event.commits.length == 1
+    if: ${{ github.event.commits.length == 1 }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
