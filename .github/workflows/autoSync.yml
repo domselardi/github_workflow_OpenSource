@@ -1,0 +1,25 @@
+name: autoSyncSingleCommit
+on:
+  push:
+    branches:
+      - main
+jobs:
+  autoSyncSingleCommit:
+    if: github.event.pull_request.merged == false
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Checkout the repository
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
+        run: |
+          echo Autosync a single commit that is not comming from a merged pull request
+          echo ${{ github.event.pull_request }}
+          echo "$GITHUB_CONTEXT"
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.AUTOSYNC_TOKEN_CLOUD_HOSTED_REPO }}
+          repository: ${{ secrets.AUTOSYNC_CLOUD_HOSTED_REPO_URL }}
+          event-type: ${{ secrets.AUTOSYNC_EVENT_TYPE }}
+          client-payload: '{"ref": "${{ github.ref }}", "prNumber": "${{ github.event.pull_request.number }}", "sha": "${{ github.sha }}"}'
