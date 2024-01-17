@@ -23,4 +23,4 @@ jobs:
           token: ${{ secrets.AUTOSYNC_TOKEN_CLOUD_HOSTED_REPO }}
           repository: ${{ secrets.AUTOSYNC_CLOUD_HOSTED_REPO_URL }}
           event-type: ${{ secrets.AUTOSYNC_EVENT_TYPE }}
-          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
+          client-payload: '{"ref": "${{ github.ref }}", "prNumber": "${{ github.event.pull_request.number }}", "sha": "${{ github.sha }}"}'
