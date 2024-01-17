@@ -1,20 +1,19 @@
-name: CI
+name: autoSyncSingleCommit
 on:
-  pull_request:
-    types:
-      - closed
-    branches: [ "main" ]
+  push:
+    branches:
+      - main
 jobs:
-  build:
-    if: github.event.pull_request.merged == true
+  autoSyncSingleCommit:
+    if: github.event.pull_request.merged == false
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Run a one-line script
+      - name: Checkout the repository
         env:
           GITHUB_CONTEXT: ${{ toJSON(github) }}
         run: |
-          echo The PR ${{ github.event.pull_request.number }} was merged!
+          echo Autosync a single commit that is not comming from a merged pull request
           echo ${{ github.event.pull_request }}
           echo "$GITHUB_CONTEXT"
       - name: Repository Dispatch
