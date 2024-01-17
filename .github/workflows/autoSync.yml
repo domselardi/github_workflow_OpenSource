@@ -9,8 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        env:
-          GITHUB_CONTEXT: ${{ toJSON(github) }}
       - name: Ignore this single commit
         run: |
           echo Commit has came from merged pull request! Please ignore it!
