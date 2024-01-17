@@ -5,15 +5,17 @@ on:
       - main
 jobs:
   autoSyncNotRequired:
-    if: contains(github.event.commits[github.event.commits.length - 1].message, 'Merge pull request #')
+    if: contains(github.event.commits[github.event.commits.length - 1].message.toLowerCase(), 'merge pull request #')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
       - name: Ignore this single commit
         run: |
           echo Commit has came from merged pull request! Please ignore it!
   autoSyncSingleCommit:
-    if:  ${{ !contains(github.event.commits[github.event.commits.length - 1].message, 'Merge pull request #') }}
+    if: "!contains(github.event.commits[github.event.commits.length - 1].message.toLowerCase(), 'merge pull request #')"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
