@@ -1,0 +1,31 @@
+name: autoSyncSingleCommit
+on:
+  push:
+    branches:
+      - main
+jobs:
+  doNotAutoSyncSingleCommit:
+    if: github.event.commits[1] != null
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: IGNORE autoSyncSingleCommit
+        run: |
+          echo This single commit has came from a merged pull request. We will ignore it. This case is handled in autoSyncMergedPullRequest workflow!
+  autoSyncSingleCommit:
+    if: github.event.commits[1] == null
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: autoSyncSingleCommit
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
+        run: |
+          echo Autosync a single commit with id: ${{ github.sha }} from openSource main branch towards cloud hosted version.
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.AUTOSYNC_TOKEN }}
+          repository: ${{ secrets.AUTOSYNC_CLOUD_HOSTED_REPO_URL }}
+          event-type: autoSyncSingleCommitFromOpenSource
+          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
