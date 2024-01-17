@@ -1,2 +1,8 @@
 testSingleCommit04.txt
 testSingleCommit05.txt v02
+testSingleCommit04.txt
+testSingleCommit05.txt v03
+
+testSingleCommit04.txt
+testSingleCommit05.txt v03
+
