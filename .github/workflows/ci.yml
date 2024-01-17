@@ -1,4 +1,4 @@
-name: CI
+name: autoSyncMergedPullRequest
 on:
   pull_request:
     types:
