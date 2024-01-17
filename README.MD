@@ -18,26 +18,4 @@ Antoher test
 dasda
 dasda
 
-juju
-another 
-asda
 
-au au au
-adas
-
-dasdasdas
-
-
-das
-send pr #
-
-
-
-dasdada
-
-ciao nr 2
-
-
-bela ciao
-
-dasda
