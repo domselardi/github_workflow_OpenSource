@@ -5,7 +5,6 @@ on:
       - main
 jobs:
   autoSyncNotRequired:
-    if: ${{ github.event.commits.length > 1 }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
