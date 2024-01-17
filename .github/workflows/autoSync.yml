@@ -5,15 +5,15 @@ on:
       - main
 jobs:
   autoSyncIsAllowed:
-    if: github.event.pull_request.merged == false
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - name: Checkout the repository
         run: |
-          echo Commit was not comming from a merged pull request
+          echo Commit has came from merged pull request
   autoSyncSingleCommit:
-    if: github.event.pull_request.merged == true
+    if: github.event.pull_request.merged == false
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
