@@ -23,9 +23,9 @@ jobs:
           repository: ${{ secrets.AUTOSYNC_CH_URL }}
           event-type: ${{ secrets.AUTOSYNC_PR_EVENT_TYPE }}
           client-payload: >- # break string in YAML over multiple lines without linebreak appended at the end
-            '{
+            {
               "ref": "${{ github.ref }}",
               "prNumber": "${{ github.event.pull_request.number }}",
               "prTitle": "${{ github.event.pull_request.title }}",
               "sha": "${{ github.sha }}"
-            }'
+            }
