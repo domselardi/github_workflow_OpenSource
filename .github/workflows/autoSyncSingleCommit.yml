@@ -22,6 +22,7 @@ jobs:
           GITHUB_CONTEXT: ${{ toJSON(github) }}
         run: |
           echo Autosync a single commit with id: ${{ github.sha }} from openSource main branch towards cloud hosted version.
+          echo $GITHUB_CONTEXT
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v2
         with:
