@@ -1,2 +1,3 @@
 testSingleCommit04.txt
 Testing fullPrInfo
+Testing fullPrInfoTesting fullPrInfo
