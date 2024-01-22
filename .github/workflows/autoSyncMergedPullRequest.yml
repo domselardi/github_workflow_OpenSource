@@ -22,4 +22,4 @@ jobs:
           token: ${{ secrets.AUTOSYNC_TOKEN }}
           repository: ${{ secrets.AUTOSYNC_CH_URL }}
           event-type: ${{ secrets.AUTOSYNC_PR_EVENT_TYPE }}
-          client-payload: '{"ref": "${{ github.ref }}", "prNumber": "${{ github.event.pull_request.number }}", "fullPrInfo": "${{ github.event.pull_request }}", "sha": "${{ github.sha }}"}'
+          client-payload: '{"ref": "${{ github.ref }}", "prNumber": "${{ github.event.pull_request.number }}", "fullPrInfo": "${{ toJSON(github.event.pull_request) }}", "sha": "${{ github.sha }}"}'
