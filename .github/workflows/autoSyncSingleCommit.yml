@@ -30,8 +30,8 @@ jobs:
           repository: ${{ secrets.AUTOSYNC_CH_URL }}
           event-type: ${{ secrets.AUTOSYNC_SC_EVENT_TYPE }}
           client-payload: >-
-            '{
+            {
               "ref": "${{ github.ref }}",
               "commitMessage":> "${{ github.event.commits[0].message }}",
               "sha": "${{ github.sha }}"
-            }'
+            }
