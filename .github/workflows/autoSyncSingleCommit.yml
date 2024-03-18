@@ -25,11 +25,14 @@ jobs:
           echo $GITHUB_CONTEXT
       - name: Set commit message
         id: set_commit_msg
-        run: echo "SELECTED_XOXO=$(git log --format=%B -n 1 HEAD)" >> $GITHUB_ENV
+        run: |
+          {
+            echo 'SELECTED_XOXO<<EOF'
+            git log --format=%B -n 1 HEAD
+            echo EOF
+          } >> "$GITHUB_ENV"
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v3
-        env:
-          SELECTED_MSG: ${{ steps.set_commit_msg.outputs.SELECTED_XOXO }}
         with:
           token: ${{ secrets.AUTOSYNC_TOKEN }}
           repository: ${{ secrets.AUTOSYNC_CH_URL }}
