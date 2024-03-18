@@ -34,6 +34,6 @@ jobs:
           client-payload: |-
             {
               "ref": "${{ github.ref }}",
-              "commitMessage": "${{ GITHUB_OUTPUT }}",
+              "commitMessage": "${{ git log --format=%B -n 1 HEAD | head -n 1 }}",
               "sha": "${{ github.sha }}"
             }
