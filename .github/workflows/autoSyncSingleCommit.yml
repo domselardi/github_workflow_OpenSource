@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: IGNORE autoSyncSingleCommit
         run: |
-          echo This single commit has came from a merged commit. We will ignore it.
+          echo This single commit has came from a merged commit. We will ignore it. This case is handled in autoSyncMergedPullRequest workflow for merge commits comming from merged pull requests only! Beware - the regular merge commits are not handled by any workflow for the moment.
   autoSyncSingleCommit:
     if: github.event.commits[1] == null
     runs-on: ubuntu-latest
@@ -29,9 +29,9 @@ jobs:
           token: ${{ secrets.AUTOSYNC_TOKEN }}
           repository: ${{ secrets.AUTOSYNC_CH_URL }}
           event-type: ${{ secrets.AUTOSYNC_SC_EVENT_TYPE }}
-          client-payload: |-
+          client-payload: >-
             {
               "ref": "${{ github.ref }}",
-              "commitMessage": "${{ github.sha }}"
+              "commitMessage": "${{ github.event.commits[0].id }}",
               "sha": "${{ github.sha }}"
             }
