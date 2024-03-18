@@ -37,6 +37,6 @@ jobs:
           client-payload: |-
             {
               "ref": "${{ github.ref }}",
-              "commitMessage": "${{ env.SELECTED_MSG }}",
+              "commitMessage": "${{ env.SELECTED_XOXO }}",
               "sha": "${{ github.sha }}"
             }
