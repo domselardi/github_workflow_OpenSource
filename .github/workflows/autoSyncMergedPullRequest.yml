@@ -17,12 +17,12 @@ jobs:
           echo The PR #${{ github.event.pull_request.number }} was merged on main branch!
           echo "$GITHUB_CONTEXT"
       - name: Repository Dispatch
-        uses: peter-evans/repository-dispatch@v2
+        uses: peter-evans/repository-dispatch@v3
         with:
           token: ${{ secrets.AUTOSYNC_TOKEN }}
           repository: ${{ secrets.AUTOSYNC_CH_URL }}
           event-type: ${{ secrets.AUTOSYNC_PR_EVENT_TYPE }}
-          client-payload: >- # break string in YAML over multiple lines without linebreak appended at the end
+          client-payload: |- # break string in YAML over multiple lines without linebreak appended at the end
             {
               "ref": "${{ github.ref }}",
               "prNumber": "${{ github.event.pull_request.number }}",
