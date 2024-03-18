@@ -40,6 +40,6 @@ jobs:
           client-payload: |-
             {
               "ref": "${{ github.ref }}",
-              "commitMessage": "${{ env.SELECTED_XOXO }}",
+              "commitMessage": "autosync commit id: ${{ github.event.commits[0].id }}"
               "sha": "${{ github.sha }}"
             }
