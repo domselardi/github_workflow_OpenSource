@@ -23,14 +23,6 @@ jobs:
         run: |
           echo Autosync a single commit with id: ${{ github.sha }} from openSource main branch towards cloud hosted version.
           echo $GITHUB_CONTEXT
-      - name: Set commit message
-        id: set_commit_msg
-        run: |
-          {
-            echo 'SELECTED_XOXO<<EOF'
-            git log --format=%B -n 1 HEAD
-            echo EOF
-          } >> "$GITHUB_ENV"
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v3
         with:
@@ -40,6 +32,6 @@ jobs:
           client-payload: |-
             {
               "ref": "${{ github.ref }}",
-              "commitMessage": "${{ env.SELECTED_XOXO }}",
+              "commitMessage": "autosync commit id: ${{ github.sha }}"
               "sha": "${{ github.sha }}"
             }

@@ -1,3 +1,31 @@
-hello
-Hub sets default variables for each GitHub Actions workflow run. You can also set custom variables for use in a single workflow or multiple workflows.
-Hub sets default variables for each GitHub Actions workflow run. You can also set custom variables for use in a single workflow or multiple workflows.Hub sets default variables for each GitHub Actions workflow run. You can also set custom variables for use in a single workflow or multiple workflows.Hub sets default variables for each GitHub Actions workflow run. You can also set custom variables for use in a single workflow or multiple workflows.Hub sets default variables for each GitHub Actions workflow run. You can also set custom variables for use in a single workflow or multiple workflows.Hub sets default variables for each GitHub Actions workflow run. You can also set custom variables for use in a single workflow or multiple workflows.Hub sets default variables for each GitHub Actions workflow run. You can also set custom variables for use in a single workflow or multiple workflows.
+Hello all,
+
+I'm trying to create my first github action using python (IronPython to be more specific)
+The action takes in some inputs, creates some output (dll) file that needs to be set to the output of the action.
+After almost a lot of trials, I think I need help with this.
+
+How do I access output from a test-action that uses my custom action? Any help is appreciated. TIAHello all,
+
+I'm trying to create my first github action using python (IronPython to be more specific)
+The action takes in some inputs, creates some output (dll) file that needs to be set to the output of the action.
+After almost a lot of trials, I think I need help with this.
+
+How do I access output from a test-action that uses my custom action? Any help is appreciated. TIAHello all,
+
+I'm trying to create my first github action using python (IronPython to be more specific)
+The action takes in some inputs, creates some output (dll) file that needs to be set to the output of the action.
+After almost a lot of trials, I think I need help with this.
+
+How do I access output from a test-action that uses my custom action? Any help is appreciated. TIAHello all,
+
+I'm trying to create my first github action using python (IronPython to be more specific)
+The action takes in some inputs, creates some output (dll) file that needs to be set to the output of the action.
+After almost a lot of trials, I think I need help with this.
+
+How do I access output from a test-action that uses my custom action? Any help is appreciated. TIAHello all,
+
+I'm trying to create my first github action using python (IronPython to be more specific)
+The action takes in some inputs, creates some output (dll) file that needs to be set to the output of the action.
+After almost a lot of trials, I think I need help with this.
+
+How do I access output from a test-action that uses my custom action? Any help is appreciated. TIA
