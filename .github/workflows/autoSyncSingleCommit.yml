@@ -12,19 +12,9 @@ jobs:
       - name: IGNORE autoSyncSingleCommit
         run: |
           echo This single commit has came from a merged commit. We will ignore it. This case is handled in autoSyncMergedPullRequest workflow for merge commits comming from merged pull requests only! Beware - the regular merge commits are not handled by any workflow for the moment.
-  usage:
-    runs-on: ubuntu-latest
-    outputs:
-      content: ${{ steps.content.outputs.value }}
-    steps:
-      - uses: mkungla/actions-set-text-output@v1
-        id: content
-        with:
-          text: echo "$(git log --format=%B -n 1 HEAD)"
   autoSyncSingleCommit:
     if: github.event.commits[1] == null
     runs-on: ubuntu-latest
-    needs: usage
     steps:
       - uses: actions/checkout@v3
       - name: autoSyncSingleCommit
