@@ -32,6 +32,6 @@ jobs:
           client-payload: |-
             {
               "ref": "${{ github.ref }}",
-              "commitMessage": "autosync commit id: ${{ github.sha }}"
+              "commitMessage": "autosync commit id ${{ github.sha }}"
               "sha": "${{ github.sha }}"
             }
