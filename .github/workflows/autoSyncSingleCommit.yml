@@ -25,9 +25,7 @@ jobs:
           echo $GITHUB_CONTEXT
       - name: Set commit message
         id: set_commit_msg
-        env:
-          SELECTED_XOXO: echo $(git log --format=%B -n 1 HEAD)
-        run: echo "$SELECTED_XOXO" >> "$GITHUB_OUTPUT"
+        run: echo "SELECTED_XOXO=$(git log --format=%B -n 1 HEAD)" >> $GITHUB_ENV
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v3
         env:
@@ -39,6 +37,6 @@ jobs:
           client-payload: |-
             {
               "ref": "${{ github.ref }}",
-              "commitMessage": "$SELECTED_MSG",
+              "commitMessage": "${{ env.SELECTED_MSG }}",
               "sha": "${{ github.sha }}"
             }
