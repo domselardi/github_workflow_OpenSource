@@ -1,1 +1,2 @@
 hello
+Hub sets default variables for each GitHub Actions workflow run. You can also set custom variables for use in a single workflow or multiple workflows.
