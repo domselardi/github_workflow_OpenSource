@@ -24,6 +24,7 @@ jobs:
         run: |
           echo Autosync a single commit with id: ${{ github.sha }} from openSource main branch towards cloud hosted version.
           echo $GITHUB_CONTEXT
+          echo 'miauxoxo'
           echo $GITHUB_OUTPUT
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v3
