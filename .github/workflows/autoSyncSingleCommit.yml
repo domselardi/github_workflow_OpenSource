@@ -32,6 +32,6 @@ jobs:
           client-payload: >-
             {
               "ref": "${{ github.ref }}",
-              "commitMessage": "${{ github.event.commits[0].id }}",
+              "commitMessage": "xoxo ${{ github.event.head_commit.message }} lokoko",
               "sha": "${{ github.sha }}"
             }
