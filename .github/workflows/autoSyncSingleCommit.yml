@@ -2,7 +2,7 @@ name: autoSyncSingleCommit
 on:
   push:
     branches:
-      - mainxox
+      - main
 jobs:
   doNotAutoSyncSingleCommit:
     if: github.event.commits[1] != null
