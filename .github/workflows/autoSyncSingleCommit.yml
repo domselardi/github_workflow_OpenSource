@@ -26,7 +26,7 @@ jobs:
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v3
         with:
-          token: ${{ secrets.AUTOSYNC_TOKEN }}
+          token: ${{ secrets.AUTOSYNCTOKENWITHOUTEXPIRATION }}
           repository: ${{ secrets.AUTOSYNC_CH_URL }}
           event-type: ${{ secrets.AUTOSYNC_SC_EVENT_TYPE }}
           client-payload: >-
